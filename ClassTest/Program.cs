@@ -31,6 +31,10 @@ namespace ClassTest // C#
 
             int num = Animal.GetNumOfAnimals();
             Console.WriteLine("numOfAnimals : {0}", num);
+
+            Console.WriteLine("Area of Rectangle : {0}", ShapeMath.GetArea("rectangle"));
+            Console.WriteLine("Area of Triangle : {0}", ShapeMath.GetArea("triangle"));
+            Console.WriteLine("Area of Circle : {0}", ShapeMath.GetArea("circle"));
             Console.ReadLine();
         }
         
