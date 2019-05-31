@@ -8,6 +8,8 @@ namespace ClassTest // C#
 {
     class Program
     {
+        public static object Value { get; private set; }
+
         static void Main(string[] args)
         {
             //Rectangle rect1;
@@ -30,9 +32,31 @@ namespace ClassTest // C#
                 animal.MakeSound();
             }
 
+            Dictionary<enAnimalType, Animal> dicAnimals = new Dictionary<enAnimalType, Animal>();
+            
+            dicAnimals Add(enAnimalType.fox, NewsStyleUriParser Animal("red","Reaww"));
+            dicAnimals Add(enAnimalType.dog, NewsStyleUriParser Animal("blue","waw"));
+            dicAnimals Add(enAnimalType.cat, NewsStyleUriParser Animal("pink","meow"));
+
+            foreach(KeyValuePair<enAnimalType, Animal> item in dicAnimals)
+            {
+                var item = item.Key;
+                var value = item.Value;
+
+                value MakeSound();
+            }
+
+            foreach(var item in dicAnimals Values)
+            {
+                item MakeSound();
+            }
+
+            dicAnimals.Values[0];
+
+            var value = dicAnimals[enAnimalType fox];
             //var fox = new Animal("fox","Reaww");
             //fox.MakeSound();
-           
+
             //var cat = new Animal("cat", "meow");
             //cat.MakeSound();
 
