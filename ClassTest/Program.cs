@@ -20,17 +20,27 @@ namespace ClassTest // C#
             //Console.WriteLine("rectangle2 length : {0}, width : {1}, area : {2}",
             //    rect2.length, rect2.width, rect2.Area());
 
-            Animal fox = new Animal("fox","Reaww");
-            fox.MakeSound();
+            List<Animal> animals = new List<Animal>();
+            animals.Add(new Animal("fox","Reaww"));
+            animals.Add(new Animal("dog", "waw"));
+            animals.Add(new Animal("cat", "meow"));
+
+            foreach(var animal in animals)
+            {
+                animal.MakeSound();
+            }
+
+            //var fox = new Animal("fox","Reaww");
+            //fox.MakeSound();
            
-            Animal cat = new Animal("cat", "meow");
-            cat.MakeSound();
+            //var cat = new Animal("cat", "meow");
+            //cat.MakeSound();
 
-            Animal dog = new Animal("dog", "waw");
-            dog.MakeSound();
+            //var dog = new Animal("dog", "waw");
+            //dog.MakeSound();
 
-            int num = Animal.GetNumOfAnimals();
-            Console.WriteLine("numOfAnimals : {0}", num);
+            //int num = Animal.GetNumOfAnimals();
+            //Console.WriteLine("numOfAnimals : {0}", num);
 
             Console.WriteLine("Area of Rectangle : {0}", ShapeMath.GetArea("rectangle"));
             Console.WriteLine("Area of Triangle : {0}", ShapeMath.GetArea("triangle"));
