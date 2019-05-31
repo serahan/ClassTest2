@@ -6,23 +6,24 @@ using System.Threading.Tasks;
 
 namespace ClassTest
 {
+    public enum enShape
+    {
+        Rectangle,
+        Triangle,
+        Circle,
+    }
+    
     public static class ShapeMath
     {
         public static double GetArea(string shape = "", double length1 = 0, double length2 = 2)
         {
-            if(String.Equals("Rectangle", shape, StringComparison.OrdinalIgnoreCase))
+            switch (shape)
             {
-                return length1 * length2;
+                case enShape.Rectangle: return length1 * length2;
+                case enShape.Triangle: return length1 * length2 / 2;
+                case enShape.Circle: return Math.PI * Math.Pow(length1, 2);
+                default: return 0;
             }
-            else if(String.Equals("Triangle", shape, StringComparison.OrdinalIgnoreCase))
-            {
-                return length1 * length2 / 2;
-            }
-            else if (String.Equals("Circle", shape, StringComparison.OrdinalIgnoreCase))
-            {
-                return Math.PI * Math.Pow(length1, 2);
-            }
-            return 0;
         }
     }
 }
