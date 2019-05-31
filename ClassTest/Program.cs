@@ -22,13 +22,15 @@ namespace ClassTest // C#
 
             Animal fox = new Animal("fox","Reaww");
             fox.MakeSound();
-
+           
             Animal cat = new Animal("cat", "meow");
             cat.MakeSound();
 
             Animal dog = new Animal("dog", "waw");
             dog.MakeSound();
 
+            int num = Animal.GetNumOfAnimals();
+            Console.WriteLine("numOfAnimals : {0}", num);
             Console.ReadLine();
         }
         
