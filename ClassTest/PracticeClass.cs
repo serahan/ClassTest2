@@ -127,5 +127,102 @@ namespace ClassTest
             Console.WriteLine("Area of Triangle : {0}", ShapeMath.GetArea(enShape.Triangle, 5, 6));
             Console.WriteLine("Area of Circle : {0}", ShapeMath.GetArea(enShape.Circle, 5));
         }
+
+        public static void practice2()
+        {
+            //string str = "Kunsan University";
+            //Console.WriteLine(str.ToLower());
+            //Console.WriteLine(str.ToUpper());
+            //Console.WriteLine(str.Contains("Kunsan));
+            //Console.WriteLine(str.Contains("kunsan"));
+            //Console.WriteLine(str[0]); // K 출력
+            //Console.WriteLine(str[7]); // U 출력
+            //Console.WriteLine(str.IndexOf("University"));
+            //Console.WriteLine(str.IndexOf("U"));
+            //Console.WriteLine(str.IndexOf('U'));
+            //Console.WriteLine(str.Substring(2,5));
+            //Console.WriteLine(str.Substring(str.IndexOf("University"))); // IndexOf : 7부터 , Substring : 끝까지
+
+            //example 1
+            //StringBuilder sb = new StringBuilder();
+            //for (int i = 0;i < 10; i++)
+            //{
+            //    sb.Append(i).Append(" ");
+            //}
+            //Console.WriteLine(sb.ToString());
+
+            //example 2
+            //StringBuilder sb2 = new StringBuilder();
+            //sb2.Append("The list starts here: ");
+            //sb2.AppendLine();
+            //sb2.Append("1 cat").AppendLine();
+
+            //string str2 = sb2.ToString();
+            //Console.WriteLine(str2);
+
+            //example 3
+            //StringBuilder sb3 = new StringBuilder(
+            //    "Korea University");
+            //sb3.Replace("Korea","Kunsan");
+            //Console.WriteLine(sb3.ToString());
+
+            //example 4
+            //string[] items = { "Cat", "Dog", "Fox", "Pig" };
+
+            //StringBuilder sb4 = new StringBuilder(
+            //    "These animals are required:").AppendLine();
+
+            //foreach(string item in items)
+            //{
+            //    sb4.Append(item).AppendLine();
+            //}
+
+            //Console.WriteLine(sb4.ToString());
+
+            //example 5
+            //StringBuilder sb5 = new StringBuilder("Kunsan is University");
+            //sb5.Remove(7, 3);
+
+            //Console.WriteLine(sb5.ToString());
+
+            //example 6
+            //StringBuilder sb6 = new StringBuilder();
+            //sb6.Append("Kunsan University.");
+
+            //TrimEnd(sb6);
+            //Console.WriteLine(sb6.ToString());
+
+            //example 7
+            StringBuilder sb6 = new StringBuilder();
+            sb6.Append("Kunsan University.");
+
+            TrimEnd(sb6, '.');
+            Console.WriteLine(sb6.ToString());
+        }
+        public static void TrimEnd(StringBuilder sb, char c)
+        {
+            //example 7-1) 뒤에거 삭제
+            //int end_num = sb.Length - 1;
+            //sb.Remove(end_num, 1);
+
+            //example 7 - 2) 뒤에가.이면 삭제.
+            //int end_num = sb.Length - 1;
+
+            //if (sb[end_num] == c)
+            //{
+            //    sb.Remove(end_num, 1);
+            //}
+
+            //강사 example 7-2 + 길이가 0일 때 에러 안나게.
+            //if(sb.Length ==0)
+            //{
+            //    return;
+            //}
+            //if (sb[sb.Length - 1] == c)
+            //{
+            //    sb.Length -= 1;
+            //}
+            //////////////////////////////////////////////
+        }
     }
 }
