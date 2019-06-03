@@ -12,7 +12,7 @@ namespace ClassTest
         Triangle,
         Circle,
     }
-    
+
     public static class ShapeMath
     {
         public static double GetArea(enShape shape, double length1 = 0, double length2 = 2)
@@ -23,7 +23,6 @@ namespace ClassTest
                 case enShape.Triangle: return length1 * length2 / 2.0f;
                 case enShape.Circle: return Math.PI * Math.Pow(length1, 2);
                 default: return 0;
-
             }
         }
     }

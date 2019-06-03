@@ -6,11 +6,20 @@ using System.Threading.Tasks;
 
 namespace ClassTest
 {
-    //public enum 
+    public enum enAnimalType
+    {
+        fox,
+        dog,
+        cat,
+        tiger,
+        cow,
+        pig,
+    }
+
     class Animal
     {
         static int numOfAnimals = 0;
-        
+
         private string name;
         private string sound;
 
@@ -20,10 +29,15 @@ namespace ClassTest
         }
 
         public Animal(string n, string s)
-        {   
+        {
             name = n;
             sound = s;
             numOfAnimals++;
+        }
+
+        public string GetName()
+        {
+            return name;
         }
 
         public void MakeSound()
