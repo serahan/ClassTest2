@@ -233,6 +233,45 @@ namespace ClassTest
             //Console.WriteLine(Math.Min(10,2));
             //Console.WriteLine(Math.Atan(10.2));
         }
+
+        public static void practice4()
+        {
+            //example 1
+            //string name = "";
+
+            //Console.WriteLine("Enter your name");
+            //name = Console.ReadLine();
+            //Console.WriteLine("Hello " + name);
+
+            //example 2
+            string ID = "Kunsan";
+            string PW = "ABCDefg";
+            string User_ID = "";
+            string User_PW = "";
+
+            ID = ID.ToLower();
+
+            Console.WriteLine("Enter your ID : ");
+            User_ID = Console.ReadLine();
+            Console.WriteLine("Enter your PW : ");
+            User_PW = Console.ReadLine();
+            User_ID = User_ID.ToLower();
+
+            if(ID != User_ID)
+            {
+                Console.WriteLine("아이디가 다릅니다.");
+            }
+            else if(PW != User_PW)
+            {
+                Console.WriteLine("비밀번호가 다릅니다.");
+            }
+            else
+            {
+                Console.WriteLine("환영합니다.");
+            }
+
+        }
+
         public static void TrimEnd(StringBuilder sb, char c)
         {
             //example 7-1) 뒤에거 삭제
