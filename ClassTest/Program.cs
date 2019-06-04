@@ -11,7 +11,8 @@ namespace ClassTest
         static void Main(String[] args)
         {
             //PracticeClass.practice1();
-            PracticeClass.practice2();
+            //PracticeClass.practice2();
+            PracticeClass.practice3();
             Console.ReadLine();
         }
     }

@@ -199,6 +199,40 @@ namespace ClassTest
             TrimEnd(sb6, '.');
             Console.WriteLine(sb6.ToString());
         }
+
+        public static void practice3()
+        {
+            //Console.WriteLine(5 + 8);
+            //Console.WriteLine(5 * 8);
+            //Console.WriteLine(4 + 5 * 2);
+            //Console.WriteLine(5 / 2);
+            //Console.WriteLine(5 / 2.0);
+            //Console.WriteLine(Math.Abs(-5)); // 절댓값
+            //Console.WriteLine(Math.Pow(5,3)); // 거듭제곱
+            //Console.WriteLine(Math.Ceiling(18.8)); // 소숫값 올림 정수값 반환 math.ceiling에 2가지 함수 존재. decimal과 double.
+            //Console.WriteLine(Math.Ceiling(18.8m));
+            //Console.WriteLine(Math.Floor(18.8m));  // 소숫값 내림 정수값 반환.
+            //Console.WriteLine(Math.Sqrt(10.2)); // square root. 제곱근.
+            Tuple<string, double>[] areas =
+                { Tuple.Create("Sitka, Alaska",2070.3),
+                  Tuple.Create("New York City", 302.6),
+                  Tuple.Create("Los Angeles", 468.7),
+                  Tuple.Create("Detroit", 138.8),
+                  Tuple.Create("Chicago", 227.1),
+                  Tuple.Create("San Diego",325.2)
+            };
+
+            Console.WriteLine("{0,-18} {1,14:N1} {2,30}\n", "City", "Area (mi.)",
+                "Equivalent to a square with:");
+
+            foreach (var area in areas)
+                Console.WriteLine("{0,-18} {1, 14:N1} {2, 14:N2} miles per side",
+                    area.Item1, area.Item2, Math.Round(Math.Sqrt(area.Item2), 2));
+
+            //Console.WriteLine(Math.Max(2,5));
+            //Console.WriteLine(Math.Min(10,2));
+            //Console.WriteLine(Math.Atan(10.2));
+        }
         public static void TrimEnd(StringBuilder sb, char c)
         {
             //example 7-1) 뒤에거 삭제
