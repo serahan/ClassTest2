@@ -193,11 +193,11 @@ namespace ClassTest
             //Console.WriteLine(sb6.ToString());
 
             //example 7
-            StringBuilder sb6 = new StringBuilder();
-            sb6.Append("Kunsan University.");
+            //StringBuilder sb6 = new StringBuilder();
+            //sb6.Append("Kunsan University.");
 
-            TrimEnd(sb6, '.');
-            Console.WriteLine(sb6.ToString());
+            //TrimEnd(sb6, '.');
+            //Console.WriteLine(sb6.ToString());
         }
 
         public static void practice3()
@@ -257,17 +257,70 @@ namespace ClassTest
             User_PW = Console.ReadLine();
             User_ID = User_ID.ToLower();
 
-            if(ID != User_ID)
+            if (ID != User_ID)
             {
                 Console.WriteLine("아이디가 다릅니다.");
             }
-            else if(PW != User_PW)
+            else if (PW != User_PW)
             {
                 Console.WriteLine("비밀번호가 다릅니다.");
             }
             else
             {
                 Console.WriteLine("환영합니다.");
+            }
+
+        }
+
+        public static void practice5()
+        {
+            // 한 학급에 5명의 학생이 있고, 각 학생당 국영수 세과목 점수가 배열에 저장되어 있을 때,
+            // 각 학생별 국영수 합계 및 그 평균을 출력하는 프로그램을 작성하세요.
+            // 2차원 배열 사용
+
+            // (점수데이터)
+            // 90, 80, 90
+            // 85, 85, 85
+            // 95, 70, 75
+            // 80, 80, 90
+            // 90, 75, 80
+
+            // [출력결과]
+            // ID=0 : 합계=260, 평균=86.67
+            // ID=1 : 합계=260, 평균=86.67
+            // ID=2 : 합계=260, 평균=86.67
+            // ID=3 : 합계=260, 평균=86.67
+            // ID=4 : 합계=260, 평균=86.67
+
+            int[,] arr = new int[,] { { 90, 80, 90 }, { 85, 85, 85 }, { 95, 70, 75 }, { 80, 80, 90 }, { 90, 75, 80 } };
+
+            //int[,] arr = new int[5, 3];
+
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    for (int j = 0; j < 3; j++)
+            //    {
+            //        arr[i, j] = (int)Console.Read();
+            //    }
+            //}
+            double[] avg = new double[5];
+            int[] sum = new int[5];
+
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    sum[i] += arr[i, j];
+                }
+                for (int j = 0; j < arr.GetLength(1); j++)
+                {
+                    avg[i] = (double)sum[i] / 3;
+                }
+            }
+
+            for (int id = 0; id < 5; id++)
+            {
+                Console.WriteLine("ID={0} : 합계={1}, 평균={2}", id, sum[id], avg[id]);
             }
 
         }
@@ -296,6 +349,249 @@ namespace ClassTest
             //    sb.Length -= 1;
             //}
             //////////////////////////////////////////////
+            //}
         }
+
+        public static void practice6()
+        {
+            // 한 문자열의 대문자는 소문자로, 소문자는 대문자로 변경하는 프로그램을 작성하세요.
+
+            // 원문 : Hello World
+            // hELLO wORLD
+
+            //string[] str = { "Hello World" } ;
+
+            //for(int i=0;i<11;i++)
+            //{
+            //    char input = str[i].ToString();
+            //    if (('A' <= str[i]) && (str[i] >= 'Z'))
+            //    {
+            //        str[i] = str[i].ToLower();
+            //    }
+            //    else if(('a'<=str[i]) && (str[i] >= str[i]))
+            //    {
+            //        str[i] = str[i].ToUpper();
+            //    }
+            //}
+
+            string s = "Hello, World";
+            string result = string.Empty;
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                char t = s[i];
+                if (char.IsUpper(t))
+                {
+                    t = char.ToLower(t);
+                }
+                else if (char.IsLower(t))
+                {
+                    t = char.ToUpper(t);
+                }
+                result = result + t;
+            }
+            Console.WriteLine(result);
+        }
+
+        public static void practice7()
+        {
+            // "Hello World"를 시저의 암호화 기법을 이용하여 "Khoor Zruog"으로 출력하는 프로그램
+
+            // [결과]
+            // 원문 : Hello World
+            // 암호 : Khoor Zruog
+
+            string str = "Hello World";
+
+            Console.WriteLine("원문 : " + str);
+            Console.Write("암호 : ");
+            for (int i = 0; i < str.Length; i++)
+            {
+                char t = str[i];
+
+                if ((65 <= (char)str[i] + 3) && ((char)str[i] + 3 <= 90) ||
+                    (97 <= (char)str[i] + 3) && ((char)str[i] + 3) <= 122)
+                {
+                    t = (char)(str[i] + 3);
+                }
+                Console.Write(t);
+            }
+
+
+
+
+
+
+
+
+
+            // 강사 풀이
+            //string plaintText = "Hello World";
+
+            //StringBuilder sb = new StringBuilder();
+
+            //foreach(char ch in plaintText)
+            //{
+            //    char newchar = ch;
+
+            //    if((ch>='A' && ch <= 'Z')||(ch>='a' && ch <= 'z'))
+            //    {
+            //        newchar = (char)(ch + 3);
+
+            //        if((Char.IsUpper(ch) && newchar>'Z') || (Char.IsLower(ch) && newchar > 'z'))
+            //        {
+            //            newchar = (char)(newchar - 26);
+            //        }
+            //    }
+            //    sb.Append(newchar);
+            //}
+            //Console.WriteLine(sb.ToString());
+        }
+
+        public static void practice8()
+        {
+            // 임의의 정의 값들을 배열로 받아들여, 그 합계를 구하는 메서드(함수)를 작성하세요.
+
+            // [결과화면]
+            // A : 80, 90, 95, 75, 70
+            // Sum(A) = 410
+
+            // B : 90, 85, 85, 85, 80
+            // Sum(B) = 425
+
+            int[] arr1 = { 80, 90, 95, 75, 70 };
+            int[] arr2 = { 90, 85, 85, 85, 80 };
+
+
+            Console.Write("A :");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write(arr1[i] + " ");
+            }
+            // Console.WriteLine("A : {0}", string.Join<int>(",", arr1));
+
+            Console.Write("\n");
+            Console.WriteLine("Sum(A) : {0}", MakeSum(arr1));
+
+            Console.Write("B :");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write(arr2[i] + " ");
+            }
+            Console.Write("\n");
+            Console.WriteLine("Sum(B) : {0}", MakeSum(arr2));
+
+        }
+
+        public static int MakeSum(int[] arr)
+        {
+            int sum = 0;
+
+            for (int i = 0; i < 5; i++)
+            {
+                sum += arr[i];
+            }
+
+            return sum;
+        }
+
+        public static void practice9()
+        {
+            // 2개의 정수 값을 받아들여 덧셈, 뺄셈, 곱셈, 나눗셈을 각각 수행하는 4개의 메서드를 작성하시오.
+            // 이들 메서드를 사용하여 아래와 같은 계산식의 결과를 출력하시오.
+
+            // (3 + 5 - 2) x 2 / 3 = 4
+
+            int x = Add(3, 5);
+            x = Minus(x, 2);
+            x = Mul(x, 2);
+            x = Div(x, 3);
+
+            Console.Write("(3 + 5 - 2) x 2 / 3 = ");
+            Console.WriteLine(x);
+
+        }
+
+        public static int Add(int input1, int input2)
+        {
+            return input1 + input2;
+        }
+        public static int Minus(int input1, int input2)
+        {
+            return input1 - input2;
+        }
+        public static int Mul(int input1, int input2)
+        {
+            return input1 * input2;
+        }
+        public static int Div(int input1, int input2)
+        {
+            return input1 / input2;
+        }
+
+        public static void practice10()
+        {
+            // 다음과 같은 조건을 갖는 삼각형(Trinangle) 클래스를 작성하세요.
+
+            // [조건]
+            // 삼각형은 세변의 길이를 가지고 있으며,
+            // 클래스로부터 객체를 생성할 때 세변의 길이가 주어져야 한다.
+            // 클래스는 삼각형의 주변 둘레를 알려줄 수 있다.
+            // 클래스는 삼각형을 그리는 기능을 갖는다.여기서는 실제 삼각형을 그리기보다는
+            // "Draw(a,b,c)" 라는 문자열을 출력하는 코드로 구현한다.(a,b,c = 각변의 길이)
+
+            Triangle tri1 = new Triangle(3, 5, 4);
+            Triangle tri2 = new Triangle(3, 3, 3);
+
+            Console.Write("삼각형1 : ");
+            Console.WriteLine("A = {0}, B = {1}, C = {2}", tri1.A, tri1.B, tri1.C);
+            Console.WriteLine("둘레길이 : " + tri1.MakeSumLength);
+
+            Console.WriteLine("\n");
+
+            Console.Write("삼각형2 : ");
+            Console.WriteLine("A = {0}, B = {1}, C = {2}", tri2.A, tri2.B, tri2.C);
+            tri2.Draw();
+        }
+    }
+}
+
+public class Triangle
+{
+    private double length1 = 0;
+    private double length2 = 0;
+    private double length3 = 0;
+
+    public Triangle(double a, double b, double c) // 생성자
+    {
+        this.length1 = a;
+        this.length2 = b;
+        this.length3 = c;
+    }
+
+    public double A // 속성
+    {
+        get { return this.length1; }
+    }
+
+    public double B // 속성
+    {
+        get { return this.length2; }
+    }
+
+    public double C // 속성
+    {
+        get { return this.length3; }
+    }
+
+    public double MakeSumLength // 속성
+    {
+        // return this.length1 + this.length2 + this.length3;
+        get { return this.length1 + this.length2 + this.length3; }
+    }
+
+    public void Draw() // 메소드
+    {
+        Console.WriteLine("Draw({0},{1},{2})", this.length1, this.length2, this.length3);
     }
 }

@@ -13,7 +13,13 @@ namespace ClassTest
             //PracticeClass.practice1();
             //PracticeClass.practice2();
             //PracticeClass.practice3();
-            PracticeClass.practice4();
+            //PracticeClass.practice4();
+            //PracticeClass.practice5();
+            //PracticeClass.practice6();
+            //PracticeClass.practice7();
+            //PracticeClass.practice8();
+            //PracticeClass.practice9();
+            PracticeClass.practice10();
             Console.ReadLine();
         }
     }
