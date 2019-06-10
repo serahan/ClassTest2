@@ -589,6 +589,100 @@ namespace ClassTest
             Console.WriteLine("b={0}", four2.B);
             Console.WriteLine("사칙연산 결과 : {0}, {1}, {2}, {3}", four2.Add(four2.A, four2.B), four2.Sub(four2.A, four2.B), four2.Mul(four2.A, four2.B), four2.Div(four2.A, four2.B));
         }
+
+        public static void practice13()
+        {
+            Car car = new Car("자동차");
+
+            car.Start();
+            Console.WriteLine("시작시 속도 : {0}", car.Speed);
+            car.Accelerate();
+            Console.WriteLine("엑셀 1단계 속도 : {0}", car.Speed);
+            car.Accelerate();
+            Console.WriteLine("엑셀 2단계 속도 : {0}", car.Speed);
+            car.Stop();
+            Console.WriteLine("정지후 속도 : {0}", car.Speed);
+        }
+
+        public static void practice14()
+        {
+
+        }
+    }
+}
+
+public interface IDrawable
+{
+    void Draw();
+}
+
+public class MyPaint : IDrawable
+{ 
+
+    public void Draw()
+    {
+
+    }
+
+    public void Triangle(int a, int b, int c)
+    {
+        
+    }
+    public void Rectangle(int width, int height)
+    {
+
+    }
+    public void CustomShape(int width, int height, int x, int y)
+    {
+
+    }
+}
+
+public class Car
+{
+    public string maker
+    {
+        get;
+        set;
+    }
+    public string model
+    {
+        get;
+        set;
+    }
+
+    private string name
+    {
+        get;
+        set;
+    }
+    private int speed;
+
+    public Car(string Name)
+    {
+        name = Name;
+    }
+
+    public int Speed
+    {
+        get { return this.speed; }
+    }
+
+    public void Start()
+    {
+        this.speed = 1;
+    }
+    public void Stop()
+    {
+        this.speed = 0;
+    }
+    public void Accelerate()
+    {
+        this.speed += 10;
+    }
+    public void Break()
+    {
+        this.speed -= 10;
     }
 }
 
