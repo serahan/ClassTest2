@@ -577,12 +577,17 @@ namespace ClassTest
 
         public static void practice12()
         {
-            FourFuncGeneric<double> four1 = new FourFuncGeneric<double>();
-            four1.A = 20.5;
-            Console.WriteLine("a={0}", four1.A);
-            four1.B = 10.5;
-            Console.WriteLine("b={0}", four1.B);
-            Console.WriteLine("사칙연산 결과 : {0}, {1}, {2}, {3}", four1.Add(four1.A, four1.B), four1.Sub(four1.A, four1.B), four1.Mul(four1.A, four1.B), four1.Div(four1.A, four1.B));
+            FourFuncGeneric<int> four1 = new FourFuncGeneric<int>();
+            four1.A = 10;
+            four1.B = 20;
+            Console.WriteLine("사칙연산 결과: {0}, {1}, {2}, {3}", four1.Add(four1.A, four1.B), four1.Sub(four1.A, four1.B), four1.Mul(four1.A, four1.B), four1.Div(four1.A, four1.B));
+            
+            FourFuncGeneric<double> four2 = new FourFuncGeneric<double>();
+            four2.A = 20.5;
+            Console.WriteLine("a={0}", four2.A);
+            four2.B = 10.5;
+            Console.WriteLine("b={0}", four2.B);
+            Console.WriteLine("사칙연산 결과 : {0}, {1}, {2}, {3}", four2.Add(four2.A, four2.B), four2.Sub(four2.A, four2.B), four2.Mul(four2.A, four2.B), four2.Div(four2.A, four2.B));
         }
     }
 }
