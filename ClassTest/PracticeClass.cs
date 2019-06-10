@@ -553,6 +553,37 @@ namespace ClassTest
             Console.WriteLine("A = {0}, B = {1}, C = {2}", tri2.A, tri2.B, tri2.C);
             tri2.Draw();
         }
+
+        public static void practice11()
+        {
+            FourFunction four = new FourFunction();
+            Console.Write("a=");
+            four.A = 20; // Console.Read();
+            Console.Write(four.A);
+            Console.Write("  b=");
+            four.B = 10; // Console.Read();
+            Console.WriteLine(four.B);
+            Console.WriteLine("사칙연산 결과: {0}, {1}, {2}, {3}", four.Add(four.A, four.B), four.Sub(four.A, four.B), four.Mul(four.A, four.B), four.Div(four.A, four.B));
+
+            Console.WriteLine("");
+            Console.Write("c=");
+            four.C = 20.5;
+            Console.Write(four.C);
+            Console.Write("  d=");
+            four.D = 10.5;
+            Console.WriteLine(four.D);
+            Console.WriteLine("사칙연산 결과 : {0}, {1}, {2}, {3:N6}", four.Add(four.C, four.D), four.Sub(four.C, four.D), four.Mul(four.C, four.D), four.Div(four.C, four.D));
+        }
+
+        public static void practice12()
+        {
+            FourFuncGeneric<double> four1 = new FourFuncGeneric<double>();
+            four1.A = 20.5;
+            Console.WriteLine("a={0}", four1.A);
+            four1.B = 10.5;
+            Console.WriteLine("b={0}", four1.B);
+            Console.WriteLine("사칙연산 결과 : {0}, {1}, {2}, {3}", four1.Add(four1.A, four1.B), four1.Sub(four1.A, four1.B), four1.Mul(four1.A, four1.B), four1.Div(four1.A, four1.B));
+        }
     }
 }
 
@@ -593,5 +624,143 @@ public class Triangle
     public void Draw() // 메소드
     {
         Console.WriteLine("Draw({0},{1},{2})", this.length1, this.length2, this.length3);
+        Console.WriteLine("둘레길이 : {0}, {1}, {2}", this.length1, this.length2, this.length3);
+    }
+
+    // 강사 풀이
+    //List<Triangle1> triangles = new List<Triangle1>();
+    //triangles.Add(new Triangle1(3, 4, 5));
+    //        triangles.Add(new Triangle1(3, 3, 3));
+    //        triangles.Add(new Triangle1(5, 4, 3));
+
+    //        int index = 1;
+    //        foreach(Triangle1 shape in triangles)
+    //        {
+    //            shape.Draw(index);
+    //            index++;
+    //        }
+}
+
+public class FourFunction // practice11 사칙연산 ppt #13-1
+{
+    private int IntNumber1 = 0;
+    private int IntNumber2 = 0;
+    private double DoubleNumber1 = 0.0;
+    private double DoubleNumber2 = 0.0;
+
+    public int A
+    {
+        get { return this.IntNumber1; }
+        set { this.IntNumber1 = value; }
+    }
+
+    public int B
+    {
+        get { return this.IntNumber2; }
+        set { this.IntNumber2 = value; }
+    }
+
+    public double C
+    {
+        get { return this.DoubleNumber1; }
+        set { this.DoubleNumber1 = value; }
+    }
+
+    public double D
+    {
+        get { return this.DoubleNumber2; }
+        set { this.DoubleNumber2 = value; }
+    }
+
+    public int Add(int a, int b)
+    {
+        return a + b;
+    }
+    public int Sub(int a, int b)
+    {
+        return a - b;
+    }
+    public int Mul(int a, int b)
+    {
+        return a * b;
+    }
+    public double Div(int a, int b)
+    {
+        if (b == 0)
+        {
+            Console.WriteLine("0으로 나눌 수 없습니다.");
+            return 0;
+        }
+        return (double)a / b; // return a * 1.0 / b;
+    }
+
+    public double Add(double a, double b)
+    {
+        return a + b;
+    }
+    public double Sub(double a, double b)
+    {
+        return a - b;
+    }
+    public double Mul(double a, double b)
+    {
+        return a * b;
+    }
+    public double Div(double a, double b)
+    {
+        if (b == 0)
+        {
+            Console.WriteLine("0으로 나눌 수 없습니다.");
+            return 0;
+        }
+        return a / b;
     }
 }
+
+public class FourFuncGeneric<T> where T: struct, IConvertible // where T : struct // practice12 사칙연산 제네릭 클래스 ppt #13-2
+{
+    private T data1;
+    private T data2;
+
+    public T A
+    {
+        set { this.data1 = value; }
+        get { return this.data1; }
+    }
+
+    public T B
+    {
+        set { this.data2 = value; }
+        get { return this.data2; }
+    }
+
+    public T Add(T a, T b)
+    {
+        dynamic da = a;
+        dynamic db = b;
+
+        return da + db;
+    }
+    public T Sub(T a, T b)
+    {
+        dynamic da = a;
+        dynamic db = b;
+
+        return da - db;
+    }
+    public T Mul(T a, T b)
+    {
+        dynamic da = a;
+        dynamic db = b;
+
+        return da * db;
+    }
+    public T Div(T a, T b)
+    {
+        dynamic da = a;
+        dynamic db = b;
+
+        return da / db;
+    }
+}
+
