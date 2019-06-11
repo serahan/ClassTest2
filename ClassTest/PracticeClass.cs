@@ -581,7 +581,7 @@ namespace ClassTest
             four1.A = 10;
             four1.B = 20;
             Console.WriteLine("사칙연산 결과: {0}, {1}, {2}, {3}", four1.Add(four1.A, four1.B), four1.Sub(four1.A, four1.B), four1.Mul(four1.A, four1.B), four1.Div(four1.A, four1.B));
-            
+
             FourFuncGeneric<double> four2 = new FourFuncGeneric<double>();
             four2.A = 20.5;
             Console.WriteLine("a={0}", four2.A);
@@ -618,12 +618,89 @@ namespace ClassTest
             //paint.DrawShape(c);
 
         }
+
+        public static void practice15() // ppt practice#16 employee class 상속
+        {
+            FullTimeEmployee park = new FullTimeEmployee("park", 1234);
+            park.AnnualSalary = 10000;
+            park.AdjustSalary(100);
+            Console.WriteLine("{0}'s annual salary is {1}", park.Name, park.AnnualSalary);
+            park.SayName();
+
+            PartTimeEmployee choi = new PartTimeEmployee("choi");
+            choi.TimelySalary = 100;
+            int workHour = 8;
+            int totalPayment = choi.CalculatePay(workHour);
+            Console.WriteLine("{0}'s work hour is {1}, total payment is {2}", choi.Name, workHour, totalPayment);
+            choi.SayName();
+        }
+
+        public static void practice16()
+        {
+
+        }
     }
 }
+
+class Employee
+{
+    public string Name { get; set; }
+    public string email { get; set; }
+
+    public Employee(string name)
+    {
+        this.Name = name;
+    }
+    public virtual void SayName()
+    {
+        Console.WriteLine($"My name is {Name}");
+    }
+}// practice15
+
+class FullTimeEmployee : Employee
+{
+    private int EmployeeNumber { get; set; }
+
+    public FullTimeEmployee(string name, int number) : base(name)
+    {
+        EmployeeNumber = number;
+    }
+
+    public int AnnualSalary { get; set; }
+
+    public void AdjustSalary(int amount)
+    {
+        this.AnnualSalary += amount;
+    }
+    public override void SayName()
+    {
+        //base.SayName();
+        Console.WriteLine($"My number is {EmployeeNumber}, name is {Name}");
+    }
+} // practice15
+
+class PartTimeEmployee : Employee
+{
+    public PartTimeEmployee(string name) : base(name)
+    {
+        this.Name = name;
+    }
+    public int TimelySalary { get; set; }
+
+    public int CalculatePay(int time)
+    {
+        return time * TimelySalary;
+    }
+    public override void SayName()
+    {
+        Console.WriteLine($"My name is {Name}");
+    }
+} // practice15
+
 interface IDrawable
 {
     void Draw(); // interface => interface 내에 있는 함수를 꼭 가져야 한다.
-}
+} // practice15
 
 class MyPaint
 {
@@ -638,7 +715,7 @@ class MyPaint
             drawble.Draw();
         }
     }
-}
+} // practice15
 
 class TriangleDraw : IDrawable
 {
@@ -657,7 +734,7 @@ class TriangleDraw : IDrawable
         Console.WriteLine($"Draw triangle({length1},{length2},{length3})");
     }
 
-}
+} // practice15
 
 class RectangleDraw : IDrawable
 {
@@ -673,7 +750,7 @@ class RectangleDraw : IDrawable
     {
         Console.WriteLine("Draw rectangle({0}, {1})", width, height);
     }
-}
+} // practice15
 
 class CustomShape : IDrawalbe
 {
@@ -682,7 +759,7 @@ class CustomShape : IDrawalbe
     private int x = 0;
     private int y = 0;
 
-    public CustomShape(int a,int b,int c, int d)
+    public CustomShape(int a, int b, int c, int d)
     {
         this.width = a;
         this.height = b;
@@ -693,7 +770,7 @@ class CustomShape : IDrawalbe
     {
         Console.WriteLine("Draw customShape({0}, {1}, {2}, {3})", width, height, x, y);
     }
-}
+} // practice15
 
 public class Car
 {
@@ -873,7 +950,7 @@ public class FourFunction // practice11 사칙연산 ppt #13-1
     }
 }
 
-public class FourFuncGeneric<T> where T: struct, IConvertible // where T : struct // practice12 사칙연산 제네릭 클래스 ppt #13-2
+public class FourFuncGeneric<T> where T : struct, IConvertible // where T : struct // practice12 사칙연산 제네릭 클래스 ppt #13-2
 {
     private T data1;
     private T data2;
