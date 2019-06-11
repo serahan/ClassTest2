@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace ClassTest
 {
@@ -637,8 +638,33 @@ namespace ClassTest
 
         public static void practice16()
         {
+            try
+            {
+                using (StreamReader sr = new StreamReader("score.txt"))
+                {
+                    //int ch = 0;
+                    //char[] buffer = new char[10];
 
-        }
+                    // 라인 읽기
+                    //string line;
+                    //while ((line = sr.ReadLine()) != null)
+                    //{
+                    //    Console.WriteLine(line);
+                    //}
+
+                    // 한 문자 읽기
+                    int ch = sr.Read();
+                    char[] buffer = new char[10];
+                    sr.Read(buffer, 0, 10);
+                    Console.WriteLine(buffer);
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(e.Message);
+            }
+        } 
     }
 }
 
