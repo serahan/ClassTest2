@@ -606,35 +606,92 @@ namespace ClassTest
 
         public static void practice14()
         {
+            MyPaint paint = new MyPaint();
+
+            TriangleDraw t = new TriangleDraw(3, 4, 5);
+            paint.DrawShape(t);
+
+            RectangleDraw r = new RectangleDraw(5, 5);
+            paint.DrawShape(r);
+
+            CustomShape c = new CustomShape(3, 3, 3, 3);
+            //paint.DrawShape(c);
 
         }
     }
 }
-
-public interface IDrawable
+interface IDrawable
 {
-    void Draw();
+    void Draw(); // interface => interface 내에 있는 함수를 꼭 가져야 한다.
 }
 
-public class MyPaint : IDrawable
-{ 
+class MyPaint
+{
+    List<IDrawable> drawables = new List<IDrawable>();
 
+    public void DrawShape(IDrawable shape)
+    {
+        drawables.Add(shape);
+
+        foreach (IDrawalbe drawble in drawables)
+        {
+            drawble.Draw();
+        }
+    }
+}
+
+class TriangleDraw : IDrawable
+{
+    private int length1 = 0;
+    private int length2 = 0;
+    private int length3 = 0;
+
+    public TriangleDraw(int a, int b, int c)
+    {
+        this.length1 = a;
+        this.length2 = b;
+        this.length3 = c;
+    }
     public void Draw()
     {
-
+        Console.WriteLine($"Draw triangle({length1},{length2},{length3})");
     }
 
-    public void Triangle(int a, int b, int c)
-    {
-        
-    }
-    public void Rectangle(int width, int height)
-    {
+}
 
-    }
-    public void CustomShape(int width, int height, int x, int y)
-    {
+class RectangleDraw : IDrawable
+{
+    private int width = 0;
+    private int height = 0;
 
+    public RectangleDraw(int a, int b)
+    {
+        this.width = a;
+        this.height = b;
+    }
+    public void Draw()
+    {
+        Console.WriteLine("Draw rectangle({0}, {1})", width, height);
+    }
+}
+
+class CustomShape : IDrawalbe
+{
+    private int width = 0;
+    private int height = 0;
+    private int x = 0;
+    private int y = 0;
+
+    public CustomShape(int a,int b,int c, int d)
+    {
+        this.width = a;
+        this.height = b;
+        this.x = c;
+        this.y = d;
+    }
+    public void Draw()
+    {
+        Console.WriteLine("Draw customShape({0}, {1}, {2}, {3})", width, height, x, y);
     }
 }
 

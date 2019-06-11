@@ -22,7 +22,8 @@ namespace ClassTest
             //PracticeClass.practice10();
             //PracticeClass.practice11();
             //PracticeClass.practice12();
-            PracticeClass.practice13();
+            //PracticeClass.practice13();
+            PracticeClass.practice14();
             Console.ReadLine();
         }
     }
