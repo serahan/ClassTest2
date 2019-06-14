@@ -649,14 +649,28 @@ namespace ClassTest
                     string line;
                     while ((line = sr.ReadLine()) != null)
                     {
+                        //Console.WriteLine(line);
+
+                        string[] split = line.Split(',');
+                        int num1 = 0, num2 = 0, num3 = 0;
+                        double avg = 0.0;
+
+                        num1 = int.Parse(split[1]);
+                        num2 = int.Parse(split[2]);
+                        num3 = int.Parse(split[3]);
+                        avg = (double)(num1 + num2 + num3) / 3;
+
                         Console.WriteLine(line);
+                        Console.WriteLine($"합계 : {num1 + num2 + num3}");
+                        Console.WriteLine($"평균 : {avg}");
+                        // {int.Parse(split[1]) + int.Parse(split[2]) + int.Parse(split[3])}
                     }
 
                     // 한 문자 읽기
-                    int ch = sr.Read();
-                    char[] buffer = new char[10];
-                    sr.Read(buffer, 0, 10);
-                    Console.WriteLine(buffer);
+                    //int ch = sr.Read();
+                    //char[] buffer = new char[10];
+                    //sr.Read(buffer, 0, 10);
+                    //Console.WriteLine(buffer);
                 }
             }
             catch(Exception e)
