@@ -611,12 +611,15 @@ namespace ClassTest
 
             TriangleDraw t = new TriangleDraw(3, 4, 5);
             paint.DrawShape(t);
+            Console.WriteLine();
 
             RectangleDraw r = new RectangleDraw(5, 5);
             paint.DrawShape(r);
+            Console.WriteLine();
 
             CustomShape c = new CustomShape(3, 3, 3, 3);
-            //paint.DrawShape(c);
+            paint.DrawShape(c);
+            Console.WriteLine();
 
         }
 
@@ -642,15 +645,12 @@ namespace ClassTest
             {
                 using (StreamReader sr = new StreamReader("score.txt"))
                 {
-                    //int ch = 0;
-                    //char[] buffer = new char[10];
-
-                    // 라인 읽기
-                    //string line;
-                    //while ((line = sr.ReadLine()) != null)
-                    //{
-                    //    Console.WriteLine(line);
-                    //}
+                    //라인 읽기
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        Console.WriteLine(line);
+                    }
 
                     // 한 문자 읽기
                     int ch = sr.Read();
@@ -736,7 +736,7 @@ class MyPaint
     {
         drawables.Add(shape);
 
-        foreach (IDrawalbe drawble in drawables)
+        foreach (IDrawable drawble in drawables)
         {
             drawble.Draw();
         }
@@ -778,7 +778,7 @@ class RectangleDraw : IDrawable
     }
 } // practice15
 
-class CustomShape : IDrawalbe
+class CustomShape : IDrawable
 {
     private int width = 0;
     private int height = 0;
