@@ -678,7 +678,49 @@ namespace ClassTest
                 Console.WriteLine("The file could not be read:");
                 Console.WriteLine(e.Message);
             }
-        } 
+        }
+
+        public static void practice17()
+        {
+            A Test1 = new A();
+            B Test2 = new B();
+
+            Test1.EventHandler += new DelegateType(Test2.PrintA);
+            Test1.EventHandler += new DelegateType(Test2.PrintB);
+            Test1.Func("Good!!");
+            Test1.EventHandler -= Test2.PrintB;
+            Test1.Func("Hi~~!");
+            Test1.EventHandler -= Test2.PrintA;
+
+            Test1.EventHandler += Test2.PrintA; // 처리기에 추가하기
+            Test1.EventHandler += Test2.PrintB;
+
+            Test1.Func("Hello World");
+        }
+    }
+
+    delegate void DelegateType(string message);
+
+    class A
+    {
+        public event DelegateType EventHandler;
+
+        public void Func(String Message)
+        {
+            EventHandler(Message);
+        }
+    }
+
+    class B
+    {
+        public void PrintA(string Message)
+        {
+            Console.WriteLine(Message);
+        }
+        public void PrintB(string Message)
+        {
+            Console.WriteLine(Message);
+        }
     }
 }
 
