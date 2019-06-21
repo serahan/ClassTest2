@@ -17,22 +17,18 @@ namespace Thread_1
 
     class Program
     {
-        static void Func()
+        static void ThreadProc1()
         {
-            int i = 0;
-            while(true)
-            {
-                Console.WriteLine("{0} ",i++);
-                Thread.Sleep(300);
-            }
+            Console.WriteLine("2번 쓰레드 {0}", Thread.CurrentThread.GetHashCode());
         }
 
-        
+
+
         static void Main(string[] args)
         {
-            Thread th = new Thread(new ThreadStart(Func));
-            th.IsBackground = true; // 쓰레드 돌아가는거 정지
+            Thread th = new Thread(new ThreadStart(ThreadProc1));
             th.Start();
+            Console.WriteLine("Main 쓰레드 {0}",Thread.CurrentThread.GetHashCode());
             Console.WriteLine("Main 종료");
         }
     }
