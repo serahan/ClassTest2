@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Threading;
 
 namespace ClassTest
 {
@@ -697,11 +698,34 @@ namespace ClassTest
 
             Test1.Func("Hello World");
         }
+
+        public static void practice18()
+        {
+            
+        }
     }
 
-    delegate void DelegateType(string message);
+    class Program
+    {
+        static void Func()
+        {
+            Console.WriteLine("스레드에서 호출");
+        }
 
-    class A
+        static void ParameterizedFunc2(object obj)
+        {
+            for (int i = 0; i < (int)obj; i++)
+            {
+                Console.WriteLine("Parameterized 스레드에서 호출 : {0}", i);
+            }
+        }
+        
+
+    }
+
+    delegate void DelegateType(string message); // practice17
+
+    class A // practice17
     {
         public event DelegateType EventHandler;
 
@@ -711,7 +735,7 @@ namespace ClassTest
         }
     }
 
-    class B
+    class B // practice17
     {
         public void PrintA(string Message)
         {

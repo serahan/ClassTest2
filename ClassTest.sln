@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassTest", "ClassTest\Clas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{3A80FF51-7875-40F0-B974-4F427D2D717A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thread", "Thread\Thread.csproj", "{11DC497A-1AB2-49E0-95D8-CD1251880E3A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3A80FF51-7875-40F0-B974-4F427D2D717A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A80FF51-7875-40F0-B974-4F427D2D717A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A80FF51-7875-40F0-B974-4F427D2D717A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11DC497A-1AB2-49E0-95D8-CD1251880E3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11DC497A-1AB2-49E0-95D8-CD1251880E3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11DC497A-1AB2-49E0-95D8-CD1251880E3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11DC497A-1AB2-49E0-95D8-CD1251880E3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
