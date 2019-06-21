@@ -7,6 +7,14 @@ using System.Text;
 
 namespace Thread_1
 {
+    class Test
+    {
+        public void Print()
+        {
+            Console.WriteLine("스레드 호출");
+        }
+    }
+
     class Program
     {
         static void Func()
@@ -41,7 +49,14 @@ namespace Thread_1
 
             //=====================================================
 
+            Test test1 = new Test();
+            Test test2 = new Test();
 
+            Thread th1 = new Thread(new ThreadStart(test1.Print));
+            Thread th2 = new Thread(new ThreadStart(test2.Print));
+
+            th1.Start();
+            th2.Start();
         }
     }
 }
